@@ -1,16 +1,13 @@
-from http import client
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 import math
-from openai import OpenAI
-import openai  # ✅ متوافق مع الإصدار الجديد
+from openai import OpenAI  # ✅ متوافق مع الإصدار الجديد
 
 app = Flask(__name__)
 CORS(app)
 
-import os
-openai.api_key = os.getenv("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")
-
+# ✅ مفتاح OpenAI (حدثه بمفتاحك الحقيقي)
+client = OpenAI(api_key="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")
 
 # بيانات المستشفيات
 hospitals = [
@@ -47,7 +44,7 @@ def find_nearest_hospital(user_lat, user_lng):
 def index():
     return render_template('index.html')  # تأكد أن index.html في مجلد templates
 
-@app.route('/chat', methods=['POST'])
+@app.route('/https://roufidah.onrender.com/chat', methods=['POST'])
 def chat():
     data = request.get_json()
     message = data.get("message", "")
