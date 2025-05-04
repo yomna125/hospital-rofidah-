@@ -47,7 +47,7 @@ def find_nearest_hospital(user_lat, user_lng):
 def index():
     return render_template('index.html')  # تأكد أن index.html في مجلد templates
 
-@app.route('/https://hospital-chatbot-yd4e.onrender.com', methods=['POST'])
+@app.route('/chat', methods=['POST'])
 def chat():
     data = request.get_json()
     message = data.get("message", "")
